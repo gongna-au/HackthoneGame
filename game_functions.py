@@ -1,8 +1,10 @@
 import sys
+from turtle import back
+
 
 import pygame
 
-def check_events():
+def check_events(ship):
     """响应按键和鼠标事件"""
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
@@ -10,10 +12,25 @@ def check_events():
             
         # 按下与松开不同的键，代表了人物的不同状态
         elif event.type==pygame.KEYDOWN:
-            if event.key==pygame.K_RIGHT:
-                ship.moving_right=True
-            elif event.key==pygame.K_LEFT:
-                ship.moving_left=True
+            if event.key==pygame.K_UP:
+                #向上移动人物
+                ship.moving_up=True
+            if event.key==pygame.K_DOWN:
+                #向下移动人物
+                ship.moving_down=True
+            
+        elif event.type==pygame.KEYUP:
+            if event.key==pygame.K_UP:
+                ship.moving_up=False 
+            if event.key==pygame.K_DOWN:
+                ship.moving_down=False
+                
+                
+           
+            
+                
+                
+            
             
                 
     
@@ -28,9 +45,10 @@ def update_screen(role_settings,screen,ship,backend):
     #ship 是实例化的人物
     backend.blitBackend()
     ship.blitme()
+    ship.update()
     pygame.display.flip()
 
-    
+
     
     
     

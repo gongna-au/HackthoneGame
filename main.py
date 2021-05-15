@@ -22,7 +22,8 @@ def run_game():
     backend=BackendImage(screen)
     
     #创建一个实例化的人物
-    ship=Ship(screen)
+    
+    ship=Ship(screen,ai_settings)
     
   
     
@@ -30,7 +31,7 @@ def run_game():
     
     while True:
         #调用game_functions模块的check_events实现对事件的监听
-        gf.check_events()
+        gf.check_events(ship)
         gf.update_screen(role_settings,screen,ship,backend)
         
         
