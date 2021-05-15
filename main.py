@@ -22,7 +22,7 @@ def run_game():
     backend=BackendImage(screen)
     
     #创建一个实例化的人物
-    
+    ai_settings=1.5
     ship=Ship(screen,ai_settings)
     
   
