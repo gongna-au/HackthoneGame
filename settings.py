@@ -10,4 +10,10 @@ class Settings():
         self.screen_height=1000
         self.bg_color=(111,111,111)
         self.ship_speed_factor=1.5
+        # 背景设置
+        self.backend_speed_factor = 1
+        self.backend_width = 2000
+        self.backend_height= 1000
+
+        
         
