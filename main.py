@@ -11,6 +11,7 @@ def run_game():
     #角色设置的实例化
     role_settings=Settings()
     
+    
     screen=pygame.display.set_mode((role_settings.screen_width,role_settings.screen_height),)
     
     screen =pygame.display.set_mode((2000,1000))
@@ -22,8 +23,8 @@ def run_game():
     backend=BackendImage(screen)
     
     #创建一个实例化的人物
-    ai_settings=1.5
-    ship=Ship(screen,ai_settings)
+    
+    ship=Ship(screen,role_settings)
     
   
     

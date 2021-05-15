@@ -1,4 +1,5 @@
 import pygame
+
 class BackendImage():
     def __init__(self,screen):
         """设计背景的初始位置"""
@@ -26,7 +27,7 @@ class BackendImage():
 
 class Ship():
     
-    def __init__(self,screen,ai_settings):
+    def __init__(self,screen,role_settings):
         
         """初始化设置人物的位置"""
         # 加载人物图像并获取其外接矩形,变量screen、image
@@ -57,7 +58,7 @@ class Ship():
         
         
         
-        self.ai_settings=ai_settings
+        self.role_settings=role_settings
         #人物的属性center中储存小数值
         self.center=float(self.man_rect.bottom)
         
@@ -77,17 +78,17 @@ class Ship():
     def update(self):
         """根据移动位置调整人物位置"""
         if self.moving_up:
-            self.center-=self.ai_settings.ship_speed_factor
+            self.center-=self.role_settings.ship_speed_factor
         elif self.moving_down:
-            self.center+=self.ai_settings.ship_speed_factor
+            self.center+=self.role_settings.ship_speed_factor
             
     
         
         #修改update的方法,避免图像移到屏幕外面
-        if self.moving_down and self.man_rect.bottom<self.screen_rect.bottom:
-            self.center += self.ai_settings.ship_speed_factor
+        if self.moving_down and self.man_rect.top<self.screen_rect.top:
+            self.center += self.role_settings.ship_speed_factor
         if self.moving_up and self.man_rect.top > 0:
-            self.center-=self.ai_settings.ship_speed_factor
+            self.center-=self.role_settings.ship_speed_factor
             
         #根据self.center更新rect对象
         self.man_rect.bottom=self.center  
