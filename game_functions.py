@@ -19,13 +19,14 @@ def check_events():
     
             
             
-def update_screen(role_settings,screen,ship):
+def update_screen(role_settings,screen,ship,backend):
     """更新屏幕上的图片并切换到新屏幕"""
     
     #每次循环时都重新绘制屏幕
     screen.fill(role_settings.bg_color)
     #调用绘制人物的函数,在这之前要创建一个实例
     #ship 是实例化的人物
+    backend.blitBackend()
     ship.blitme()
     pygame.display.flip()
 
